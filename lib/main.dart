@@ -39,7 +39,9 @@ class _RootPageState extends State<RootPage> {
         title: Text('i Musician'),
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {}, child: Icon(Icons.gif_box_rounded)),
+          // todo: move to the middle
+          onPressed: () {},
+          child: Icon(Icons.gif_box_rounded)),
       bottomNavigationBar: NavigationBar(
         destinations: [
           NavigationDestination(
