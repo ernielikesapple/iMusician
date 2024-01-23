@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        primarySwatch: Colors.yellow,
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.green,
         ),
@@ -31,11 +31,30 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
+  int currentPage = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('i Musician'),
+      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {}, child: Icon(Icons.gif_box_rounded)),
+      bottomNavigationBar: NavigationBar(
+        destinations: [
+          NavigationDestination(
+              icon: Icon(Icons.newspaper_rounded), label: 'Feeds'),
+          NavigationDestination(
+              icon: Icon(Icons.live_tv_rounded), label: 'Live'),
+          NavigationDestination(icon: Icon(Icons.chat_rounded), label: 'Chats'),
+          NavigationDestination(icon: Icon(Icons.person), label: 'Me'),
+        ],
+        onDestinationSelected: (int pageNumber) {
+          setState(() {
+            currentPage = pageNumber;
+          });
+        },
+        selectedIndex: currentPage,
       ),
     );
   }
