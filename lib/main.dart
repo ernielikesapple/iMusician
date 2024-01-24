@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:i_musician/UI/chat_page/chat_page.dart';
-import 'package:i_musician/UI/feeds_pages/feeds_page.dart';
-import 'package:i_musician/UI/live_page/live_page.dart';
-import 'package:i_musician/UI/me_pages/me_page.dart';
+import 'package:i_musician/UI/tabs/chat_page/chat_page.dart';
+import 'package:i_musician/UI/tabs/feeds_pages/feeds_page.dart';
+import 'package:i_musician/UI/tabs/live_page/live_page.dart';
+import 'package:i_musician/UI/tabs/me_pages/me_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,8 +36,8 @@ class RootPage extends StatefulWidget {
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
   List<Widget> pages = [
-    FeedsPage(),
-    LivePage(),
+    FeedsPage(), // 先做这个类似facebook， ins的feeds pages 熟悉基本的ui，网络请求
+    LivePage(), // 再做这个直播， 1.视频直播 2.语音房间
     ChatPage(),
     MePage(),
   ];
@@ -47,19 +47,18 @@ class _RootPageState extends State<RootPage> {
       appBar: AppBar(
         title: Text('i Musician'),
       ),
-      body: pages[currentPage],
+      body: pages[currentPage], // todo: add logIn pages
       floatingActionButton: FloatingActionButton(
           // todo: move to the middle
           onPressed: () {},
           child: Icon(Icons.gif_box_rounded)),
       bottomNavigationBar: NavigationBar(
+        // todo: add custom tab bars to lower the bottom margin
         destinations: [
-          NavigationDestination(
-              icon: Icon(Icons.newspaper_rounded), label: 'Feeds'),
-          NavigationDestination(
-              icon: Icon(Icons.live_tv_rounded), label: 'Live'),
-          NavigationDestination(icon: Icon(Icons.chat_rounded), label: 'Chats'),
-          NavigationDestination(icon: Icon(Icons.person), label: 'Me'),
+          NavigationDestination(icon: Icon(Icons.newspaper_rounded), label: ''),
+          NavigationDestination(icon: Icon(Icons.live_tv_rounded), label: ''),
+          NavigationDestination(icon: Icon(Icons.chat_rounded), label: ''),
+          NavigationDestination(icon: Icon(Icons.person), label: ''),
         ],
         onDestinationSelected: (int pageNumber) {
           setState(() {
