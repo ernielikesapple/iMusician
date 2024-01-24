@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:i_musician/UI/chat_page/chat_page.dart';
+import 'package:i_musician/UI/feeds_pages/feeds_page.dart';
+import 'package:i_musician/UI/live_page/live_page.dart';
+import 'package:i_musician/UI/me_pages/me_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -6,7 +10,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,12 +35,19 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
+  List<Widget> pages = [
+    FeedsPage(),
+    LivePage(),
+    ChatPage(),
+    MePage(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('i Musician'),
       ),
+      body: pages[currentPage],
       floatingActionButton: FloatingActionButton(
           // todo: move to the middle
           onPressed: () {},
