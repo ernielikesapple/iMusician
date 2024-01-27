@@ -44,9 +44,9 @@ class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('i Musician'),
-      ),
+      // appBar: AppBar(
+      //   title: Text('i Musician'),
+      // ), will use individual app bar on each page
       body: pages[currentPage], // todo: add logIn pages
       floatingActionButton: FloatingActionButton(
           // todo: move to the middle

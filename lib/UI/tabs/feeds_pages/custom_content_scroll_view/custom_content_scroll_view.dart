@@ -14,15 +14,18 @@ class _CustomContentScrollViewState extends State<CustomContentScrollView> {
     return Column(
       children: [
         SizedBox(
-          height: 50,
+          height: 80,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
             itemCount: 10,
             itemBuilder: (context, index) {
-              return Image.network(
-                'https://www.nyc.gov.sg/omw-api/CMS/Uploads/Job/Musician-040321115604.png',
-                fit: BoxFit.cover,
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.network(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy8MZ6g7n4tf_QqQyXeeBw45qDIgplNAbz1w&usqp=CAU',
+                  fit: BoxFit.cover,
+                ),
               );
             },
           ),
